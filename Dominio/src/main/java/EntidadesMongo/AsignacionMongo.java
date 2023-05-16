@@ -15,19 +15,19 @@ public class AsignacionMongo {
     private ObjectId id_asignacion;
     private Residuo residuo;
     private ArrayList<Traslado>traslados;
-    private Solicitud solicitud;
+    private float cantidadTotal;
 
-    public AsignacionMongo(ObjectId id_asignacion, Residuo residuo, ArrayList<Traslado> traslados, Solicitud solicitud) {
+    public AsignacionMongo(ObjectId id_asignacion, Residuo residuo, ArrayList<Traslado> traslados, float cantidadTotal) {
         this.id_asignacion = id_asignacion;
         this.residuo = residuo;
         this.traslados = traslados;
-        this.solicitud = solicitud;
+        this.cantidadTotal = cantidadTotal;
     }
 
-    public AsignacionMongo(Residuo residuo, ArrayList<Traslado> traslados, Solicitud solicitud) {
+    public AsignacionMongo(Residuo residuo, ArrayList<Traslado> traslados, float cantidadTotal) {
         this.residuo = residuo;
         this.traslados = traslados;
-        this.solicitud = solicitud;
+        this.cantidadTotal = cantidadTotal;
     }
 
     public AsignacionMongo() {
@@ -57,14 +57,14 @@ public class AsignacionMongo {
         this.traslados = traslados;
     }
 
-    public Solicitud getSolicitud() {
-        return solicitud;
+    public float getCantidadTotal() {
+        return cantidadTotal;
     }
 
-    public void setSolicitud(Solicitud solicitud) {
-        this.solicitud = solicitud;
+    public void setCantidadTotal(float cantidadTotal) {
+        this.cantidadTotal = cantidadTotal;
     }
-    
+
     
     
     

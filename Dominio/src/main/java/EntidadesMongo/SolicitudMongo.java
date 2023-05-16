@@ -13,26 +13,20 @@ import org.bson.types.ObjectId;
 public class SolicitudMongo {
     private ObjectId id_solicitud;
     private Date fechaSalida;
-    private Residuo residuo;
+    private ResiduoSolicitud rs;
     private String estado;
-    private float cantidad;
-    private String tipo;
 
-    public SolicitudMongo(ObjectId id_solicitud, Date fechaSalida, Residuo residuo, String estado, float cantidad, String tipo) {
+    public SolicitudMongo(ObjectId id_solicitud, Date fechaSalida, EntidadesMongo.ResiduoSolicitud rs, String estado) {
         this.id_solicitud = id_solicitud;
         this.fechaSalida = fechaSalida;
-        this.residuo = residuo;
+        this.rs = rs;
         this.estado = estado;
-        this.cantidad = cantidad;
-        this.tipo = tipo;
     }
 
-    public SolicitudMongo(Date fechaSalida, Residuo residuo, String estado, float cantidad, String tipo) {
+    public SolicitudMongo(Date fechaSalida, EntidadesMongo.ResiduoSolicitud rs, String estado) {
         this.fechaSalida = fechaSalida;
-        this.residuo = residuo;
+        this.rs = rs;
         this.estado = estado;
-        this.cantidad = cantidad;
-        this.tipo = tipo;
     }
 
     public SolicitudMongo() {
@@ -54,12 +48,12 @@ public class SolicitudMongo {
         this.fechaSalida = fechaSalida;
     }
 
-    public Residuo getResiduo() {
-        return residuo;
+    public EntidadesMongo.ResiduoSolicitud getRs() {
+        return rs;
     }
 
-    public void setResiduo(Residuo residuo) {
-        this.residuo = residuo;
+    public void setRs(EntidadesMongo.ResiduoSolicitud rs) {
+        this.rs = rs;
     }
 
     public String getEstado() {
@@ -69,23 +63,5 @@ public class SolicitudMongo {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public float getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(float cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
-    
     
 }
