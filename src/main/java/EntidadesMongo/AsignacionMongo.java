@@ -17,7 +17,7 @@ public class AsignacionMongo {
     private Residuo residuo;
     private ArrayList<Traslado>traslados;
     private float cantidadTotal;
-
+    
     public AsignacionMongo(ObjectId id_asignacion, Residuo residuo, ArrayList<Traslado> traslados, float cantidadTotal) {
         this.id_asignacion = id_asignacion;
         this.residuo = residuo;

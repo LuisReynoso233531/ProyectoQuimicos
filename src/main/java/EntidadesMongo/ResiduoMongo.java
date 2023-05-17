@@ -77,6 +77,6 @@ public class ResiduoMongo {
     public void setNombreProductor(String nombreProductor) {
         this.nombreProductor = nombreProductor;
     }
-    
+
     
 }

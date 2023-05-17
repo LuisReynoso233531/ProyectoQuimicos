@@ -13,7 +13,7 @@ public class Traslado {
     private float km;
     private Tratamiento tratamiento;
     private Destino destino;
-
+    
     public Residuo getResiduo() {
         return residuo;
     }
