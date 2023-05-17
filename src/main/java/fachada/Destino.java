@@ -4,21 +4,22 @@
  */
 package fachada;
 
-import java.util.Calendar;
+
+import java.util.Date;
 
 /**
  *
  * @author Alan Rodriguez
  */
 public class Destino {
-    private Calendar fechaLlegada;
+    private Date fechaLlegada;
     private String nombre;
 
-    public Calendar getFechaLlegada() {
+    public Date getFechaLlegada() {
         return fechaLlegada;
     }
 
-    public void setFechaLlegada(Calendar fechaLlegada) {
+    public void setFechaLlegada(Date fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
     }
 

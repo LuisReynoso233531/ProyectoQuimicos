@@ -4,6 +4,7 @@
  */
 package fachada;
 
+import Excepciones.MalformedResiduo;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,15 +16,39 @@ public class Residuo {
     
     private String codigo;
     private List<Quimico> quimicos;
-
+    private String nombre;
     
-    public void verificar() throws Exception{
+    public void verificar() throws MalformedResiduo{
         
-        if(this.codigo==null || quimicos == null || quimicos.isEmpty() || this.codigo.equals("")) {
-            throw new Exception("Error, quimico vacio");
+        if(verificarCodigo() || verificarQuimicos() || verificarNombre()) {
+            throw new MalformedResiduo("Error, quimico vacio");
         }
         
     }
+    
+    //Verificaciones
+    private boolean verificarCodigo() {
+        if(this.codigo == null || this.codigo.equalsIgnoreCase("")) {
+            return true;
+        }
+        return false;
+    }
+    
+    private boolean verificarQuimicos() {
+        if(this.quimicos == null || this.quimicos.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+    
+    private boolean verificarNombre() {
+        if(this.codigo == null || this.codigo.equals("")){
+            return true;
+        }
+        return false;
+    }
+    //Verificaciones
+    
     
     public String getCodigo() {
         return codigo;
@@ -60,6 +85,14 @@ public class Residuo {
         }
         final Residuo other = (Residuo) obj;
         return Objects.equals(this.quimicos, other.quimicos);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     
