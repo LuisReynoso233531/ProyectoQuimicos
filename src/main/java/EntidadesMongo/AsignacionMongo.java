@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.bson.types.ObjectId;
 /**
  *
- * @author luis-
+ * @author luis- y rosa
  */
 public class AsignacionMongo {
     
