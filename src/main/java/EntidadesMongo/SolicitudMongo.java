@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package EntidadesMongo;
-import Entidades.*;
 import java.util.Date;
 import org.bson.types.ObjectId;
 /**

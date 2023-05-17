@@ -4,8 +4,8 @@
  */
 package EntidadesMongo;
 
+import fachada.Residuo;
 import org.bson.types.ObjectId;
-import Entidades.*;
 
 /**
  *

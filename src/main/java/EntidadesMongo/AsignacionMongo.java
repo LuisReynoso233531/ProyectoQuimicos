@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package EntidadesMongo;
-import Entidades.*;
+import fachada.Residuo;
+import fachada.Traslado;
 import java.util.ArrayList;
 import org.bson.types.ObjectId;
 /**

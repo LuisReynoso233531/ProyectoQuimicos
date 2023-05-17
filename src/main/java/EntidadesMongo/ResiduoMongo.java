@@ -5,6 +5,7 @@
 package EntidadesMongo;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.bson.types.ObjectId;
 
 /**
@@ -13,18 +14,18 @@ import org.bson.types.ObjectId;
  */
 public class ResiduoMongo {
     private ObjectId Codigo;
-    private ArrayList<String> quimicos;
+    private List<String> quimicos;
     private String nombre;
     private String nombreProductor;
 
-    public ResiduoMongo(ObjectId Codigo, ArrayList<String> quimicos, String nombre, String nombreProductor) {
+    public ResiduoMongo(ObjectId Codigo, List<String> quimicos, String nombre, String nombreProductor) {
         this.Codigo = Codigo;
         this.quimicos = quimicos;
         this.nombre = nombre;
         this.nombreProductor = nombreProductor;
     }
 
-    public ResiduoMongo(ArrayList<String> quimicos, String nombre, String nombreProductor) {
+    public ResiduoMongo(List<String> quimicos, String nombre, String nombreProductor) {
         this.quimicos = quimicos;
         this.nombre = nombre;
         this.nombreProductor = nombreProductor;
@@ -41,11 +42,11 @@ public class ResiduoMongo {
         this.Codigo = Codigo;
     }
 
-    public ArrayList<String> getQuimicos() {
+    public List<String> getQuimicos() {
         return quimicos;
     }
 
-    public void setQuimicos(ArrayList<String> quimicos) {
+    public void setQuimicos(List<String> quimicos) {
         this.quimicos = quimicos;
     }
 
