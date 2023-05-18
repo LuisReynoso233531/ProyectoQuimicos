@@ -12,6 +12,12 @@ public class Productor {
     
     private String nombre;
 
+    public Productor() {
+    }
+    public Productor(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }

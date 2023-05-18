@@ -4,6 +4,7 @@
  */
 package EntidadesMongo;
 import java.util.Date;
+import java.util.List;
 import org.bson.types.ObjectId;
 /**
  *
@@ -12,17 +13,17 @@ import org.bson.types.ObjectId;
 public class SolicitudMongo {
     private ObjectId id_solicitud;
     private Date fechaSalida;
-    private ResiduoSolicitud rs;
+    private List<ResiduoSolicitud> rs;
     private String estado;
 
-    public SolicitudMongo(ObjectId id_solicitud, Date fechaSalida, EntidadesMongo.ResiduoSolicitud rs, String estado) {
+    public SolicitudMongo(ObjectId id_solicitud, Date fechaSalida, List<ResiduoSolicitud> rs, String estado) {
         this.id_solicitud = id_solicitud;
         this.fechaSalida = fechaSalida;
         this.rs = rs;
         this.estado = estado;
     }
 
-    public SolicitudMongo(Date fechaSalida, EntidadesMongo.ResiduoSolicitud rs, String estado) {
+    public SolicitudMongo(Date fechaSalida, List<ResiduoSolicitud> rs, String estado) {
         this.fechaSalida = fechaSalida;
         this.rs = rs;
         this.estado = estado;
@@ -47,11 +48,11 @@ public class SolicitudMongo {
         this.fechaSalida = fechaSalida;
     }
 
-    public EntidadesMongo.ResiduoSolicitud getRs() {
+    public List<ResiduoSolicitud> getRs() {
         return rs;
     }
 
-    public void setRs(EntidadesMongo.ResiduoSolicitud rs) {
+    public void setRs(List<ResiduoSolicitud> rs) {
         this.rs = rs;
     }
 
