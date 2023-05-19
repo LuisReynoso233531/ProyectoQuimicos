@@ -21,40 +21,46 @@ public class Solicitud {
 
     public void verificar() throws MalformedSolicitud {
 
-        if(this.residuosSolicitud == null) {
-            throw new MalformedSolicitud("La solicitud esta mal hecha");
+        if(this.residuosSolicitud == null || this.residuosSolicitud.isEmpty()) {
+            throw new MalformedSolicitud("La solicitud esta vacia");
         }
         
-        if(this.residuosSolicitud.isEmpty()) {
-            throw new MalformedSolicitud("La solicitud esta mal hecha");
+        if(verificarPeso()) {
+            throw new MalformedSolicitud("El peso de algun residuo esta mal");
         }
         
-        if (verificarPeso() || verificarFecha()) {
-            throw new MalformedSolicitud("La solicitud esta mal hecha");
+        if(verificarTipo()) {
+            throw new MalformedSolicitud("El tipo de algun residuo es incorrecto");
+        }
+        
+        if (verificarFecha()) {
+            throw new MalformedSolicitud("La fecha de la solicitud no es correcta");
         }
 
     }
 
-    private boolean verificarPeso() {
-        
-        
+    private boolean verificarTipo() {
         for (ResiduoSolicitud rs : this.residuosSolicitud) {
-
-            if (rs.getCantidad() <= 0 || rs.getTipo().equals("") || rs.getTipo() == null) {
+            if(rs.getTipo() == null) {
+                return true;
+            }
+            if(!(rs.getTipo().equalsIgnoreCase("l") || rs.getTipo().equalsIgnoreCase("k"))) {
                 return true;
             }
 
         }
-        int cantidad = 0;
+        return false;
+    }
+    
+    private boolean verificarPeso() {
         for (ResiduoSolicitud rs : this.residuosSolicitud) {
 
-            if(rs.getTipo().equalsIgnoreCase("l") || rs.getTipo().equalsIgnoreCase("k")) {
-                cantidad++;
+            if (rs.getCantidad() <= 0) {
+                return true;
             }
 
         }
-        
-        return cantidad!=this.residuosSolicitud.size();
+        return false;
     }
 
     private boolean verificarFecha() {
