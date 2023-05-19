@@ -18,7 +18,20 @@ public class Solicitud {
     private Date fechaSalida;
     private List<ResiduoSolicitud> residuosSolicitud;
     private Productor productor;
+    private boolean estado;
 
+    public Solicitud(Date fechaSalida, List<ResiduoSolicitud> residuosSolicitud, Productor productor, boolean estado) {
+        this();
+        this.fechaSalida = fechaSalida;
+        this.residuosSolicitud = residuosSolicitud;
+        this.productor = productor;
+        this.estado = estado;
+    }
+
+    public Solicitud() {
+        estado = false;
+    }
+    
     public void verificar() throws MalformedSolicitud {
 
         if(this.residuosSolicitud == null || this.residuosSolicitud.isEmpty()) {
@@ -94,4 +107,14 @@ public class Solicitud {
         this.productor = productor;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
+    
 }

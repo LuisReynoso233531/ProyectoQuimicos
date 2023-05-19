@@ -2,34 +2,52 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package fachada;
+package EntidadesMongo;
 
+import fachada.Empresa;
+import fachada.Transporte;
+import java.util.List;
 import java.util.Objects;
 
 /**
  *
- * @author Alan Rodriguez
+ * @author Rosa Rodriguez
  */
-public class Empresa {
-    protected String nombre;
-    protected boolean disponible;
+public class EmpresaMongo extends Empresa{
+
+    private List<Transporte> transportes;
     
-    public Empresa() {
+    public EmpresaMongo() {
+        super();
     }
 
-    public Empresa(String nombre, boolean disponible) {
-        this.nombre = nombre;
-        this.disponible = disponible;
+    public EmpresaMongo(Empresa e) {
+        this.nombre = e.getNombre();
+        this.disponible = e.isDisponible();
+    }
+    
+    public EmpresaMongo(String nombre, boolean disponible) {
+        super(nombre, disponible);
+    }
+
+    public List<Transporte> getTransportes() {
+        return transportes;
+    }
+
+    public void setTransportes(List<Transporte> transportes) {
+        this.transportes = transportes;
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    @Override
     public boolean isDisponible() {
         return disponible;
     }
@@ -41,8 +59,7 @@ public class Empresa {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.nombre);
-        hash = 71 * hash + (this.disponible ? 1 : 0);
+        hash = 53 * hash + Objects.hashCode(this.transportes);
         return hash;
     }
 
@@ -57,13 +74,9 @@ public class Empresa {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Empresa other = (Empresa) obj;
-        if (this.disponible != other.disponible) {
-            return false;
-        }
-        return Objects.equals(this.nombre, other.nombre);
+        final EmpresaMongo other = (EmpresaMongo) obj;
+        return Objects.equals(this.transportes, other.transportes);
     }
 
-    
     
 }

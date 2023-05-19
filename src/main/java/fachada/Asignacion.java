@@ -4,6 +4,7 @@
  */
 package fachada;
 
+import Excepciones.MalformedAsignacion;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,18 +15,27 @@ import java.util.Objects;
 public class Asignacion {
     
     private Residuo residuo;
-    private List<Empresa> empresas;
+    private List<EmpresaAsignacion> empresas;
     private float cantidadTotal;
-
+    private Productor solicitante;
+    
     public Asignacion() {
     }
 
-    public Asignacion(Residuo residuo, List<Empresa> empresas, float cantidadTotal) {
+    public Asignacion(Residuo residuo, List<EmpresaAsignacion> empresas, float cantidadTotal, Productor solicitante) throws MalformedAsignacion {
         this.residuo = residuo;
         this.empresas = empresas;
         this.cantidadTotal = cantidadTotal;
+        this.solicitante = solicitante;
+        verificar();
     }
-
+    private void verificar() throws MalformedAsignacion{
+        if(empresas == null || empresas.isEmpty())
+        {
+            throw new MalformedAsignacion("No puede haber asignacion sin empresas");
+        }
+    }
+    
     public Residuo getResiduo() {
         return residuo;
     }
@@ -34,11 +44,11 @@ public class Asignacion {
         this.residuo = residuo;
     }
 
-    public List<Empresa> getEmpresas() {
+    public List<EmpresaAsignacion> getEmpresas() {
         return empresas;
     }
 
-    public void setEmpresas(List<Empresa> empresas) {
+    public void setEmpresas(List<EmpresaAsignacion> empresas) {
         this.empresas = empresas;
     }
 
@@ -50,12 +60,26 @@ public class Asignacion {
         this.cantidadTotal = cantidadTotal;
     }
 
+    public void asignaEnPartesIguales() {
+        for(EmpresaAsignacion em : empresas) {
+            em.setAsignado(cantidadTotal/empresas.size());
+        }
+    }
+
+    public Productor getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(Productor solicitante) {
+        this.solicitante = solicitante;
+    }
+    
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 43 * hash + Objects.hashCode(this.residuo);
-        hash = 43 * hash + Objects.hashCode(this.empresas);
-        hash = 43 * hash + Float.floatToIntBits(this.cantidadTotal);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.residuo);
+        hash = 79 * hash + Objects.hashCode(this.empresas);
+        hash = 79 * hash + Float.floatToIntBits(this.cantidadTotal);
         return hash;
     }
 
@@ -79,6 +103,5 @@ public class Asignacion {
         }
         return Objects.equals(this.empresas, other.empresas);
     }
-    
-    
+
 }
