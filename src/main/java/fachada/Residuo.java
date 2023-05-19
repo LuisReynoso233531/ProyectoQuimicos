@@ -7,6 +7,8 @@ package fachada;
 import Excepciones.MalformedResiduo;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -19,11 +21,9 @@ public class Residuo {
     private String nombre;
     
     public void verificar() throws MalformedResiduo{
-        
         if(verificarCodigo() || verificarQuimicos() || verificarNombre()) {
             throw new MalformedResiduo("Error, quimico vacio");
         }
-        
     }
     
     //Verificaciones
@@ -31,6 +31,7 @@ public class Residuo {
         if(this.codigo == null || this.codigo.equalsIgnoreCase("")) {
             return true;
         }
+        
         return false;
     }
     
